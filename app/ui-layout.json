@@ -1,0 +1,125 @@
+{
+  "sidebarWidth": 400,
+  "viewportLeft": 48,
+  "viewportWidth": 304,
+  "viewportHeight": 1080,
+  "verticalInset": 56,
+  "horizontalInset": 8,
+  "tileWidth": 256,
+  "tileHeight": 192,
+  "tileGap": 20,
+  "controlsGap": 38,
+  "controlGap": 8,
+  "controlInset": 16,
+  "controlWidth": 240,
+  "controlHeight": 56,
+  "controlPadding": 16,
+  "iconSize": 26,
+  "labelGap": 16,
+  "labelSize": 23,
+  "clock": {
+    "x": 1604,
+    "y": 56,
+    "width": 260,
+    "height": 60,
+    "opacity": 1.0,
+    "fontSize": 36
+  },
+  "brightness": {
+    "control": {
+      "x": 1792,
+      "y": 366,
+      "width": 112,
+      "height": 348,
+      "opacity": 1.0
+    },
+    "surface": {
+      "x": 20,
+      "y": 0,
+      "width": 72,
+      "height": 348,
+      "opacity": 1.0
+    },
+    "track": {
+      "x": 53,
+      "y": 86,
+      "width": 6,
+      "height": 188,
+      "opacity": 1.0
+    },
+    "thumb": {
+      "x": 49,
+      "y": 135,
+      "width": 14,
+      "height": 14,
+      "opacity": 1.0
+    },
+    "icon": {
+      "x": 40,
+      "y": 158,
+      "width": 32,
+      "height": 32,
+      "opacity": 1.0
+    },
+    "dimIcon": {
+      "x": 44,
+      "y": 296,
+      "width": 24,
+      "height": 24,
+      "opacity": 0.4
+    },
+    "auto": {
+      "x": -72,
+      "y": 138,
+      "width": 72,
+      "height": 72,
+      "opacity": 1.0,
+      "color": [
+        0.047058823529411764,
+        0.054901960784313725,
+        0.0784313725490196,
+        0.8705882352941177
+      ]
+    },
+    "autoIcon": {
+      "x": 0,
+      "y": 0,
+      "width": 32,
+      "height": 32,
+      "opacity": 1.0
+    },
+    "focusSurface": {
+      "x": 20,
+      "y": 0,
+      "width": 72,
+      "height": 348,
+      "opacity": 0.0
+    },
+    "autoFocusSurface": {
+      "x": 0,
+      "y": 0,
+      "width": 72,
+      "height": 72,
+      "opacity": 0.0
+    },
+    "idleScale": 0.94,
+    "iconOpenY": 28,
+    "sheetOffset": 184,
+    "inactiveOpacity": 0.5
+  },
+  "contentCardWidth": 320,
+  "contentCardHeight": 264,
+  "contentCardsTop": 56,
+  "contentCardGap": 24,
+  "contentRowGap": 36,
+  "contentViewportLeft": 456,
+  "contentViewportTop": 248,
+  "contentViewportWidth": 1248,
+  "contentViewportHeight": 776,
+  "contentRowHeight": 320,
+  "contentArtworkRadius": 16,
+  "contentIdleScale": 0.94,
+  "contentFocusScale": 1.08,
+  "appFocusScale": 1.125,
+  "actionFocusScale": 1.0666666666666667
+}

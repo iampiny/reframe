@@ -1,0 +1,142 @@
+@font-face { font-family: Inter; src: url('fonts/InterVariable.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; }
+/* Home layout and motion; dimensions come from ui-layout.json. */
+html, body { width: 100%; height: 100%; overflow: hidden; }
+body { background: #0c0e14; color: #f6f7fb; font-family: Inter, Arial, sans-serif; }
+.frame-home { transform-origin: top left; overflow: hidden !important; }
+button { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.tile { outline: none; text-align: left; }
+.frame-home[aria-busy="true"] .tile, .frame-home[aria-busy="true"] .content-card, .frame-home[aria-busy="true"] .brightness-control { pointer-events: none; }
+/* Static shared geometry belongs to layout tokens, not copied HTML values. */
+.sidebar { left: 0; top: 0; width: var(--sidebarWidth); height: var(--viewportHeight); }
+.navigation-viewport { left: var(--viewportLeft); top: 0; width: var(--viewportWidth); height: var(--viewportHeight); }
+.navigation-list { left: 0; top: 0; width: var(--viewportWidth); padding: var(--verticalInset) var(--horizontalInset); }
+.utilities { width: calc(var(--controlWidth) + 2 * var(--controlInset)); padding: 0 var(--controlInset); }
+.utility { width: var(--controlWidth); height: var(--controlHeight); padding: 0 var(--controlPadding); }
+.utility [data-ui="action-surface"] { left: 0; top: 0; width: 100%; height: 100%; }
+.utility [data-ui="action-icon"] { width: var(--iconSize); height: var(--iconSize); }
+.utility [data-ui="action-label"] { font-size: var(--labelSize); }
+/* A small spring-like overshoot; input and background updates stay independent. */
+.sidebar { transform: translateX(0); transition: transform 300ms cubic-bezier(.2,1.12,.35,1); will-change: transform; }
+.home-stage .sidebar { animation: sidebar-enter 300ms cubic-bezier(.2,1.12,.35,1); }
+@keyframes sidebar-enter { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+/* Text-only source fallback; installed apps supply their original artwork.
+   The same continuous mask covers the background and the icon. */
+.primary .tile .card { background: #25282e; -webkit-mask-image: url('tile-mask.png'); -webkit-mask-size: 100% 100%; mask-image: url('tile-mask.png'); mask-size: 100% 100%; }
+/* Matched slot height and card scale keep the visible gap constant during growth. */
+.primary .tile .card { overflow: hidden; position: absolute; top: 50%; left: 0; width: var(--tileWidth); height: var(--tileHeight); transform: translateY(-50%); }
+.primary .tile .card, .utility { transform-origin: 50% 50%; transition: transform 250ms cubic-bezier(.2,1.35,.4,1); will-change: transform; }
+.primary .tile .card { transform-origin: 0% 50%; }
+.primary .tile.selected .card { transform: translateY(-50%) scale(var(--appFocusScale)); }
+.utility { transition-timing-function: cubic-bezier(.2,.8,.2,1); }
+.utility.selected { transform: scale(var(--actionFocusScale)); }
+/* Margin equivalents retain shared spacing on the TV's older browser engine. */
+.sidebar, .primary, .utilities, .hero, .utility { gap: 0 !important; }
+.utilities { margin-top: var(--controlsGap); }
+.primary .tile + .tile { margin-top: var(--tileGap); }
+.utility + .utility { margin-top: var(--controlGap); }
+.utility [data-ui="action-label"] { margin-left: var(--labelGap); opacity: 1 !important; transform: none; flex: 1 1 0 !important; width: auto !important; min-width: 0; white-space: nowrap; overflow: visible; text-overflow: clip; height: 30px; display: flex; flex-direction: row !important; align-items: center; justify-content: flex-start !important; text-align: left !important; line-height: 30px; }
+.utility [data-ui="action-icon"] { flex-shrink: 0; align-self: center; }
+.utility { position: relative; outline: none !important; border: 0 !important; box-shadow: none !important; }
+.utility [data-ui="action-surface"] { pointer-events: none; }
+.utility.selected [data-ui="action-surface"] { opacity: 1 !important; }
+.hero.empty { visibility: hidden; }
+.clock { font-variant-numeric: tabular-nums; }
+footer { position: absolute; bottom: 38px; right: 80px; z-index: 5; font-size: 20px; color: #a4aec0; }
+#status { text-align: right; }
+@media (prefers-reduced-motion: reduce) { .sidebar { transition: none; animation: none !important; } .primary .tile .card, .utility, .utility [data-ui="action-label"] { transition: none; } }
+
+/* The same Home view can be suspended or used for sidebar interaction. */
+.home-inactive .sidebar { visibility: hidden; transform: translateX(-100%); pointer-events: none; transition: none; }
+.home-inactive .hero, .playback-sidebar .hero, .home-inactive [data-ui="artwork-scrim"], .playback-sidebar [data-ui="artwork-scrim"] { visibility: hidden; }
+
+/* One viewport holds pinned apps followed by all four controls. */
+/* Fade only at the actual screen edges; inset padding never clips a tile. */
+.navigation-viewport { position: absolute; overflow: hidden; scrollbar-width: none; overflow-anchor: none; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 var(--verticalInset), #000 calc(100% - var(--verticalInset)), transparent); mask-image: linear-gradient(to bottom, transparent, #000 var(--verticalInset), #000 calc(100% - var(--verticalInset)), transparent); }
+.navigation-viewport::-webkit-scrollbar { display: none; }
+.navigation-list { position: relative; gap: 0 !important; transition: transform 260ms cubic-bezier(.2,.85,.2,1); will-change: transform; }
+.primary { position: relative; width: var(--tileWidth) !important; height: auto !important; padding: 0 !important; flex-shrink: 0; overflow: visible; }
+.primary:empty + .utilities { margin-top: 0; }
+.primary .tile { flex-shrink: 0; width: var(--tileWidth) !important; height: var(--tileHeight) !important; transition: transform 250ms cubic-bezier(.2,1.35,.4,1); }
+.utilities { transition: transform 250ms cubic-bezier(.2,1.35,.4,1); }
+.app-icon { position: absolute; width: 100%; height: 100%; left: 0; top: 0; object-fit: cover; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-image: url('tile-mask.png'); -webkit-mask-size: 100% 100%; mask-image: url('tile-mask.png'); mask-size: 100% 100%; }
+.app-name-fallback { position: absolute; left: 16px; right: 16px; top: 50%; transform: translateY(-50%); text-align: center; font-size: 23px; }
+/* Shared shapes; focus reveals the brightness sheet from the right. */
+.brightness-control { z-index: 5; outline: none; pointer-events: none; }
+.brightness-control [data-ui="brightness-sheet"] { opacity: 0 !important; transform: translateX(var(--sheetOffset)); pointer-events: none; transition: transform 250ms cubic-bezier(.2,1.12,.35,1), opacity 120ms ease-out; }
+.brightness-control [data-ui="brightness-icon"] { top: var(--iconCollapsedY) !important; pointer-events: auto; cursor: pointer; transform: translateY(0); transition: transform 250ms cubic-bezier(.2,1.12,.35,1); }
+.brightness-focused [data-ui="brightness-sheet"] { opacity: 1 !important; transform: translateX(0); pointer-events: auto; cursor: pointer; }
+.brightness-focused [data-ui="brightness-icon"] { transform: translateY(var(--iconLift)); }
+.brightness-control[aria-disabled="true"] { opacity: .5; }
+.home-inactive .brightness-control { visibility: hidden; pointer-events: none; }
+.brightness-focused .primary .tile.selected, .content-focused .primary .tile.selected { height: var(--tileHeight) !important; }
+.brightness-focused .primary .tile.selected .card { transform: translateY(-50%); }
+.brightness-focused .utility.selected { transform: scale(1); }
+.brightness-focused .utility.selected [data-ui="action-surface"] { opacity: 0 !important; }
+.utility [data-ui="action-icon"], .brightness-focused .utility.selected [data-ui="action-icon"] { opacity: .6 !important; }
+.utility.selected [data-ui="action-icon"] { opacity: 1 !important; }
+@media (prefers-reduced-motion: reduce) { .brightness-control [data-ui="brightness-sheet"], .brightness-control [data-ui="brightness-icon"] { transition: none; } }
+
+@media (prefers-reduced-motion: reduce) { .navigation-list, .primary .tile, .utilities { transition: none; } }
+
+/* Auto appears left of the expanded slider; focus stays independent of the level. */
+.brightness-control [data-ui="brightness-auto-button"] { outline: none; cursor: pointer; color: #f6f7fb; }
+/* Focus darkens the capsule; outlined/filled sun-A glyphs mark off/on separately. */
+.brightness-control [data-ui="brightness-auto-icon"] { opacity: .7; }
+.brightness-control [data-ui="brightness-auto-button"]:focus [data-ui="brightness-auto-icon"] { opacity: 1; }
+.brightness-control [data-ui="brightness-auto-icon-on"] { display: none; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.brightness-control [data-ui="brightness-auto-button"][aria-pressed="true"] [data-ui="brightness-auto-icon"] { visibility: hidden; }
+.brightness-control [data-ui="brightness-auto-button"][aria-pressed="true"] [data-ui="brightness-auto-icon-on"] { display: block; }
+.brightness-control [data-ui="brightness-auto-button"][aria-disabled="true"] { opacity: .4; }
+
+.brightness-control [data-ui="brightness-surface"] { opacity: var(--brightnessInactiveOpacity); }
+
+/* Real provider rows replace decorative, low-resolution fullscreen previews. */
+/* Rows move behind the side controls; only the TV frame clips them.
+   Keep their paint layer ready while the sidebar changes selection. */
+.hero { left: var(--contentViewportLeft); width: var(--contentViewportWidth); overflow: visible !important; }
+.clock { z-index: 5; }
+.hero [data-ui="preview-eyebrow"] { display: none !important; }
+.hero [data-ui="preview-description"] { opacity: 1 !important; top: 96px !important; }
+.content-rows { display: block !important; position: absolute !important; left: 0 !important; top: 0 !important; width: 1920px !important; height: 1080px !important; z-index: 3 !important; overflow: hidden !important; pointer-events: none; will-change: transform; }
+.content-card { pointer-events: auto; }
+.home-inactive .content-rows, .playback-sidebar .content-rows { visibility: hidden !important; }
+.content-rows::-webkit-scrollbar { display: none; }
+.content-row { display: block !important; position: relative; flex-shrink: 0; width: var(--contentViewportWidth); height: var(--contentRowHeight); }
+.content-row + .content-row { margin-top: var(--contentRowGap); }
+.content-row [data-ui="content-row-heading"] { position: absolute; top: 0; left: 0; width: 100%; }
+.content-cards { width: var(--contentViewportWidth); height: var(--contentCardHeight); position: absolute; top: var(--contentCardsTop); left: 0; display: flex !important; flex-direction: row !important; gap: 0 !important; overflow: visible !important; transition: transform 240ms cubic-bezier(.2,.85,.2,1); }
+.content-card { flex: 0 0 var(--contentCardWidth); width: var(--contentCardWidth); height: var(--contentCardHeight); position: relative; text-align: left; outline: none; }
+.content-card + .content-card { margin-left: var(--contentCardGap); }
+/* Prepare the card transform surface before focus changes. */
+.content-card > [data-ui="content-card"] { width: 100%; height: var(--contentCardHeight); position: relative; transform: scale(var(--contentIdleScale)); transform-origin: 50% 0; transition: transform 180ms cubic-bezier(.2,.8,.2,1); will-change: transform; }
+.content-card [data-ui="content-artwork"] { width: 100%; height: calc(var(--contentCardWidth) * .5625); position: absolute; overflow: hidden; border-radius: var(--contentArtworkRadius) !important; }
+.content-card [data-ui="content-title"], .content-card [data-ui="content-subtitle"] { width: 100%; position: absolute; display: block !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.content-thumbnail { border-radius: var(--contentArtworkRadius); width: 100%; height: 100%; object-fit: contain; display: block; }
+.content-card.selected > [data-ui="content-card"] { transform: scale(var(--contentFocusScale)); }
+.content-card.selected [data-ui="content-title"] { color: #fff !important; }
+.content-focused .primary .tile.selected { height: var(--tileHeight) !important; }
+.content-focused .primary .tile.selected .card { transform: translateY(-50%); }
+@media (prefers-reduced-motion: reduce) { .content-cards, .content-card > [data-ui="content-card"] { transition: none; } }
+
+.content-row-list { position: absolute; left: var(--contentViewportLeft); top: var(--contentViewportTop); width: var(--contentViewportWidth); transition: transform 240ms cubic-bezier(.2,.85,.2,1); }
+@media (prefers-reduced-motion: reduce) { .content-row-list { transition: none; } }
+
+/* Keep the cached radial wash ready as the sidebar animates. */
+.app-background { display: block !important; opacity: 0 !important; visibility: hidden; pointer-events: none; overflow: hidden !important; will-change: transform; }
+.app-background.visible { opacity: 1 !important; visibility: visible; }
+.app-background.visible.soft { opacity: .45 !important; }
+
+/* Rows can pass behind the sidebar; keep the overview title out of their path. */
+.content-focused #preview-title, .content-focused #preview-caption, .content-focused #preview-description { visibility: hidden; }
+
+/* Baseline size is selected; inactive controls shrink slightly. */
+.brightness-control [data-ui="brightness-surface"], .brightness-control [data-ui="brightness-focus-surface"], .brightness-control [data-ui="brightness-auto-button"] { transform-origin: center; transform: scale(var(--brightnessIdleScale)); transition: transform 200ms cubic-bezier(.2,.8,.2,1); }
+.brightness-control [data-ui="brightness-focus-surface"], .brightness-control [data-ui="brightness-auto-focus-surface"] { pointer-events: none; transition: transform 200ms cubic-bezier(.2,.8,.2,1), opacity 150ms ease-out; }
+.brightness-control:focus [data-ui="brightness-surface"], .brightness-control:focus [data-ui="brightness-focus-surface"], .brightness-control [data-ui="brightness-auto-button"]:focus { transform: scale(1); }
+.brightness-control:focus [data-ui="brightness-focus-surface"], .brightness-control [data-ui="brightness-auto-button"]:focus [data-ui="brightness-auto-focus-surface"] { opacity: 1 !important; }
+@media (prefers-reduced-motion: reduce) { .brightness-control [data-ui="brightness-surface"], .brightness-control [data-ui="brightness-focus-surface"], .brightness-control [data-ui="brightness-auto-button"], .brightness-control [data-ui="brightness-auto-focus-surface"] { transition: none; } }
+
+/* Static radial scrims keep controls readable over light playback and cards.
+   Only the active Home/sidebar draws this shared native/web texture. */
+.home-stage::after { content: ""; position: absolute; inset: 0; background: url('controls-scrim.svg') center / 100% 100% no-repeat; z-index: 4; pointer-events: none; }
+.home-inactive::after { display: none; }

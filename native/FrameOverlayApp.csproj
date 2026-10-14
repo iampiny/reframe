@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><TargetFramework>netcoreapp3.1</TargetFramework><OutputType>Exe</OutputType><UseAppHost>false</UseAppHost><DebugType>none</DebugType><EnableDefaultCompileItems>false</EnableDefaultCompileItems></PropertyGroup>
+ <ItemGroup><Compile Include="FrameOverlayApp.cs"/><Compile Include="FrameFeeds.cs"/><Compile Include="FrameBrightness.cs"/>
+ <Reference Include="Tizen.Applications.Common"><HintPath>$(TizenReferenceDir)/Tizen.Applications.Common.dll</HintPath><Private>false</Private></Reference>
+ <Reference Include="Tizen.Applications.UI"><HintPath>$(TizenReferenceDir)/Tizen.Applications.UI.dll</HintPath><Private>false</Private></Reference>
+ <Reference Include="Tizen"><HintPath>$(TizenReferenceDir)/Tizen.dll</HintPath><Private>false</Private></Reference>
+ <Reference Include="Tizen.NUI"><HintPath>$(TizenReferenceDir)/Tizen.NUI.dll</HintPath><Private>false</Private></Reference>
+ <Reference Include="Tizen.Runtime"><HintPath>$(TizenReferenceDir)/Tizen.Runtime.dll</HintPath><Private>false</Private></Reference>
+ </ItemGroup>
+</Project>

@@ -1,0 +1,29 @@
+private/
+tools/sdb
+.venv/
+__pycache__/
+build/
+.DS_Store
+node_modules/
+tools/sdk-certificates/
+native/obj/
+native/bin/
+
+# Local account feed snapshots/artwork are never bundled or committed.
+app/preview-feeds.json
+app/preview-feed-images/
+
+# Credentials and generated installation bundles, wherever they are created.
+*.p12
+*.pfx
+*.pem
+*.pw
+*.wgt
+*.tpk
+.env
+.env.*
+!.env.example
+
+# Machine configuration and release artifacts.
+local.json
+*.tar.gz

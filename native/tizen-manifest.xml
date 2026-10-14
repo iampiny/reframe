@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" package="org.framehome.overlayprobe" version="0.4.41" api-version="6.0">
+ <profile name="tv"/>
+ <ui-application appid="org.framehome.overlayprobe" exec="FrameOverlayApp.dll" type="dotnet" multiple="false" nodisplay="true" taskmanage="true" launch_mode="single"><label>Frame Dock</label><icon>probe.png</icon></ui-application>
+ <service-application appid="org.framehome.overlayprobe.startup" exec="FrameStartup.dll" type="dotnet" on-boot="false" auto-restart="false"><label>Frame Home Startup</label></service-application>
+ <privileges><privilege>http://tizen.org/privilege/appmanager.launch</privilege></privileges>
+</manifest>

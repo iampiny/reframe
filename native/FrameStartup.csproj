@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><TargetFramework>netcoreapp3.1</TargetFramework><OutputType>Exe</OutputType><AssemblyName>FrameStartup</AssemblyName><UseAppHost>false</UseAppHost><DebugType>none</DebugType><EnableDefaultCompileItems>false</EnableDefaultCompileItems></PropertyGroup>
+ <ItemGroup><Compile Include="FrameStartup.cs"/>
+ <Reference Include="Tizen.Applications.Common"><HintPath>$(TizenReferenceDir)/Tizen.Applications.Common.dll</HintPath><Private>false</Private></Reference>
+ <Reference Include="Tizen.Applications.Service"><HintPath>$(TizenServiceReference)</HintPath><Private>false</Private></Reference>
+ <Reference Include="Tizen"><HintPath>$(TizenReferenceDir)/Tizen.dll</HintPath><Private>false</Private></Reference>
+ <Reference Include="Tizen.Runtime"><HintPath>$(TizenReferenceDir)/Tizen.Runtime.dll</HintPath><Private>false</Private></Reference>
+ </ItemGroup>
+</Project>

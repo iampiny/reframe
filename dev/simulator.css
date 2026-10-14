@@ -1,0 +1,12 @@
+/* Development shell and fake external screens. Home/sidebar styles are shared. */
+body.local-preview { background: #e5e5e5 !important; }
+.simulated-screen { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; flex-direction: column; background: #0c0e14; pointer-events: none; }
+.simulated-screen[hidden], .simulated-install[hidden] { display: none; }
+.simulated-youtube { background: #f7f7f7; color: #171717; }
+.simulated-screen.simulated-youtube p { color: #626262; }
+.simulated-screen h1 { margin: 0; font-size: 64px; font-weight: 600; letter-spacing: -2px; }
+.simulated-screen p { margin: 16px 0 0; font-size: 22px; color: #d3d8e3; }
+.simulated-install { pointer-events: auto; width: 500px; margin-top: 30px; font-size: 22px; }
+.simulated-install label { display: block; margin: 18px 0; }
+.simulated-install input { display: block; width: 100%; margin-top: var(--controlGap); padding: 10px; border-radius: 12px; border: 0; background: #ffffff14; color: #fff; font: inherit; }
+.simulated-install button { padding: 14px 24px; border-radius: 18px; background: #ffffff24; }

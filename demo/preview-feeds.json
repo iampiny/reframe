@@ -1,0 +1,167 @@
+{
+  "org.tizen.netflix-app": {
+    "appId": "org.tizen.netflix-app",
+    "name": "Netflix",
+    "status": "ready",
+    "sections": [
+      {
+        "id": "demo",
+        "title": "Demo recommendations",
+        "cards": [
+          {
+            "id": "00000000000000000000000000000001",
+            "title": "Quiet Forest",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000002",
+            "title": "Coastal Morning",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000003",
+            "title": "Night Sky",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000004",
+            "title": "Mountain Trails",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000005",
+            "title": "City Lights",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000006",
+            "title": "A New Chapter",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          }
+        ]
+      }
+    ]
+  },
+  "9Ur5IzDKqV.TizenYouTube": {
+    "appId": "9Ur5IzDKqV.TizenYouTube",
+    "name": "YouTube",
+    "status": "ready",
+    "sections": [
+      {
+        "id": "demo",
+        "title": "Demo recommendations",
+        "cards": [
+          {
+            "id": "00000000000000000000000000000001",
+            "title": "Quiet Forest",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000002",
+            "title": "Coastal Morning",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000003",
+            "title": "Night Sky",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000004",
+            "title": "Mountain Trails",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000005",
+            "title": "City Lights",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000006",
+            "title": "A New Chapter",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          }
+        ]
+      }
+    ]
+  },
+  "kIciSQlYEM.plex": {
+    "appId": "kIciSQlYEM.plex",
+    "name": "Plex",
+    "status": "ready",
+    "sections": [
+      {
+        "id": "demo",
+        "title": "Demo recommendations",
+        "cards": [
+          {
+            "id": "00000000000000000000000000000001",
+            "title": "Quiet Forest",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000002",
+            "title": "Coastal Morning",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000003",
+            "title": "Night Sky",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000004",
+            "title": "Mountain Trails",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000005",
+            "title": "City Lights",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          },
+          {
+            "id": "00000000000000000000000000000006",
+            "title": "A New Chapter",
+            "subtitle": "Demo content",
+            "hasArtwork": true,
+            "artwork": "demo-art.svg"
+          }
+        ]
+      }
+    ]
+  }
+}

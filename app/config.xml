@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://frame.home/launcher" version="0.3.52" viewmodes="maximized">
+  <tizen:application id="Fr4meHome1.Launcher" package="Fr4meHome1" required_version="6.0"/>
+  <content src="index.html"/>
+  <!-- Repeated Home launches should deliver app-control without reloading the page. -->
+  <tizen:app-control>
+    <tizen:src name="index.html" reload="disable"/>
+    <tizen:operation name="http://tizen.org/appcontrol/operation/default"/>
+  </tizen:app-control>
+  <name>Frame Home</name>
+  <tizen:profile name="tv-samsung"/>
+  <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+  <tizen:privilege name="http://tizen.org/privilege/tv.inputdevice"/>
+  <tizen:privilege name="http://tizen.org/privilege/package.info"/>
+  <tizen:setting screen-orientation="landscape" context-menu="disable" background-support="disable" installation-location="auto" hwkey-event="enable"/>
+</widget>

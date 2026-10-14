@@ -1,0 +1,16 @@
+{
+  "name": "frame-home",
+  "version": "0.3.52",
+  "private": true,
+  "description": "Standalone experimental Samsung Frame Home and playback sidebar",
+  "scripts": {
+    "preview": "python3 tools/preview.py",
+    "build:web": "python3 tools/build-web.py",
+    "build:native": "sh tools/build-native.sh",
+    "package": "python3 tools/package.py",
+    "build": "npm run check && npm run build:web && npm run build:native && npm run package",
+    "deploy": "python3 tools/deploy.py",
+    "check": "node --check app/app.js && node --check app/tv.js && node --check dev/simulator.js",
+    "release:source": "python3 tools/release-source.py"
+  }
+}

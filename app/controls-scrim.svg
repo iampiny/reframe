@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <radialGradient id="clock" gradientUnits="userSpaceOnUse" cx="1840" cy="50" r="470" gradientTransform="translate(1840 50) scale(1 .7) translate(-1840 -50)">
+      <stop offset="0" stop-color="#080b12" stop-opacity=".6"/>
+      <stop offset=".4" stop-color="#080b12" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#080b12" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="brightness" gradientUnits="userSpaceOnUse" cx="1880" cy="540" r="450" gradientTransform="translate(1880 540) scale(.8 1.2) translate(-1880 -540)">
+      <stop offset="0" stop-color="#080b12" stop-opacity=".5"/>
+      <stop offset=".4" stop-color="#080b12" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#080b12" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#clock)"/>
+  <rect width="1920" height="1080" fill="url(#brightness)"/>
+</svg>
