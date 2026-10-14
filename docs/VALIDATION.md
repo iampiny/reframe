@@ -67,3 +67,11 @@ Development-only visual backlight now applies to the whole16:9 stage rather than
 A source-only hardening change closes the actionless `brightness_key` caller-check bypass. Both owned sender IDs pass; external or missing sender IDs fail before dispatch, including malformed or missing action cases. Refusal replies with failure and does not pause the sidebar. No trusted Samsung channel sender is inferred from an entry label; background routed channel keys require identity evidence and attended acceptance before deployment. The installed TV pair is unchanged. The isolated public checkout compiles both native entrypoints with zero warnings/errors. A temporary harness executes the exact dispatcher guard over30 owned/foreign/missing-sender, action and reply cases; refused callers reach neither hardware dispatch nor UI pause. Production inspection packages exclude simulator and signing/private assets.
 
 Publication uses a new Git repository created from the reviewed allowlisted source export, with a GitHub no-reply author email. Private development commits, metadata and recovery files are not copied. Privacy review covers the exported source, asset metadata and every new public commit; it does not rewrite private history.
+
+## Auto icon family refinement
+
+Home0.3.53/native0.4.42 reuses the exact curved ray and centre contours from brightness-icon.svg for both Auto states, with only an 18% centre enlargement and the A added. Browser off/on checks pass and the preview loads the newly hashed SVGs. Both native projects compile; the final icon-only pair excludes unrelated in-progress native hardening. Physical icon appearance remains pending; the brightness backend is unchanged.
+
+## Unchanged-sun Auto badge preview
+
+The previous enlarged centre still looked unlike the existing sun. The revised preview preserves brightness-icon.svg’s complete path and viewBox exactly, overlaying only a corner A badge. The badge is outlined off and filled on. Source equality checks and browser off/on, new asset hashes and confirmed50% simulator response pass. This revision is preview-only; no TV commands or deployment were performed.

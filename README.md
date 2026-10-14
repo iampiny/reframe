@@ -1,6 +1,8 @@
-# Frame Home
+# Reframe
 
 An experimental, standalone Home screen and transparent playback sidebar for Samsung Frame TVs. Existing streaming apps handle accounts and playback. A desktop preview runs the production Home UI with simulated device responses, without a TV.
+
+Reframe is an independent project, not affiliated with or endorsed by Samsung. Samsung and The Frame are trademarks of their respective owners.
 
 The implementation was investigated on a **2021 Frame, Tizen 6.0, ARMv7, firmware T-NKM2DEUC-2301.1**. Private Samsung interfaces are firmware-specific. Other models and firmware versions are not validated.
 
@@ -29,7 +31,7 @@ Layout tokens drive both renderers. Browser and native TV windows use different 
 
 This public source includes a caller-authorization correction that has not been installed on the reference TV. Background manager-routed channel keys are refused until Samsung’s sender identity is verified; brightness controls and captured keys inside our own UI are unaffected.
 
-The current installed pair is **Home 0.3.52/native 0.4.41**. All55 non-signature files matched TV readback and Home launch succeeded. Auto restores the active picture profile’s default backlight before enabling the sensor. The owner confirms Auto works; the updated sun-A icon’s physical appearance and sensor adaptation remain pending. Updates reuse this TV’s existing private signing identity; portable SDK-profile setup still needs validation.
+The current installed pair is **Home 0.3.53/native 0.4.42**. All55 non-signature files matched TV readback and Home launch succeeded. Auto restores the active picture profile’s default backlight before enabling the sensor. The owner confirms Auto works; physical appearance of the refined Auto icon and sensor adaptation remain pending. Updates reuse this TV’s existing private signing identity; portable SDK-profile setup still needs validation. The local preview has a subsequent corner-badge icon refinement that is not yet installed on the TV.
 
 Established earlier: transparent sidebar over uninterrupted Netflix/YouTube playback; Home/Back handling; Settings and native Art returns; manual brightness; real Netflix/YouTube feed reads; Netflix selected-title launch. The latest YouTube fragment correction, cursor handoff, some channel cases and Auto sensor behavior still need attended acceptance. Automatic cold startup, Samsung pin/order synchronization, and a custom artwork gallery remain unfinished. The Artwork shortcut currently targets Samsung’s selection browser; synced move/remove needs the routing work described in ARCHITECTURE.
 

@@ -101,7 +101,7 @@ class FrameOverlayApp : NUIApplication
         return result;
     }
 
-    public FrameOverlayApp() : base("Frame Dock", WindowMode.Transparent, new Size2D(1920,1080), new Position2D(0,0)) { }
+    public FrameOverlayApp() : base("Reframe Sidebar", WindowMode.Transparent, new Size2D(1920,1080), new Position2D(0,0)) { }
     static void Main(string[] args) { new FrameOverlayApp().Run(args); }
     static string Read(string key) { var p=vconf_get_str(key); if(p==IntPtr.Zero)return null; try{return Marshal.PtrToStringAnsi(p);}finally{free(p);} }
     object State() => new {full=Read("memory/appfw/current_fullscreen_appid"),partial=Read("memory/appfw/current_partial_appid"),ambient=device_power_get_ambient_mode()};

@@ -1,8 +1,8 @@
 {
-  "name": "frame-home",
-  "version": "0.3.52",
+  "name": "reframe",
+  "version": "0.3.53",
   "private": true,
-  "description": "Standalone experimental Samsung Frame Home and playback sidebar",
+  "description": "Experimental standalone Home screen and playback sidebar for Samsung The Frame TVs",
   "scripts": {
     "preview": "python3 tools/preview.py",
     "build:web": "python3 tools/build-web.py",
