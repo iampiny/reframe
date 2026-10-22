@@ -1,5 +1,7 @@
 # Project critique and cleanup
 
+Historical engineering-review record. For current firmware behavior and acceptance, use the [research handbook](research/README.md) and its [status ledger](research/evidence-and-status.md); a pending statement below retains the review-stage context rather than overriding later results.
+
 ## Complexity audit
 
 | Finding | Concrete problem | Cleaner shape |

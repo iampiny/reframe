@@ -1,5 +1,7 @@
 # Setup
 
+For firmware contracts and extension work, start with the [research handbook](research/README.md) and [evidence ledger](research/evidence-and-status.md). These explain reference-device research; they do not supply a portable Home/boot routing installer.
+
 ## Desktop UI
 
 Python 3.10+ and Node.js are sufficient. `npm run preview` builds and serves `build/preview/` on loopback, then watches source changes and reloads the browser after successful builds. JavaScript/build errors appear in the terminal; failed builds leave the previous output in place. Production builds go to the separate `build/web/` directory, so packaging does not pick up preview fixtures and TV builds do not erase the running preview. There are no npm dependencies. Fictional data in `demo/` is copied only for preview builds. Optional private preview files use `preview-*` names in `private/preview/` and are never included in source releases.

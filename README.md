@@ -23,19 +23,25 @@ Open `http://127.0.0.1:8765/`. Source changes rebuild and reload the page automa
 - `demo/`: fictional, offline preview data; excluded from TV packages.
 - `dev/`: asynchronous simulated device responses, keyboard mappings and external-app stand-ins; excluded from TV packages.
 - `tools/`: standalone build, SDK signing, paired deployment and source release.
-- `docs/`: [setup](docs/SETUP.md), [architecture](docs/ARCHITECTURE.md), [validation](docs/VALIDATION.md), [recovery](docs/RECOVERY.md), [privacy/release](docs/RELEASE.md), and [critique](docs/PROJECT-CRITIQUE.md).
+- `docs/`: [developer research handbook](docs/research/README.md), [setup](docs/SETUP.md), [architecture](docs/ARCHITECTURE.md), [validation](docs/VALIDATION.md), [recovery](docs/RECOVERY.md), [privacy/release](docs/RELEASE.md), and [critique](docs/PROJECT-CRITIQUE.md).
 
 Layout tokens drive both renderers. Browser and native TV windows use different platform APIs; they are not the same widget implementation. No Pen export or Pen MCP is involved in editing, building or running this version.
 
+## Developer research
+
+The [research handbook](docs/research/README.md) contains recovered interfaces and synthetic examples for [Art Mode](docs/research/art-mode.md), [content feeds/deep links](docs/research/content-feeds.md), [Home/startup/pins](docs/research/platform-and-routing.md), [brightness](docs/research/brightness.md), and [development/performance/validation](docs/research/development-and-validation.md). It distinguishes static analysis, installed diagnostics, physical observations and unresolved proposals. [Evidence and status](docs/research/evidence-and-status.md) reconciles older failed/pending notes with later results.
+
+These are original technical explanations, not Samsung firmware or a complete map of every TV function. Personal data, runtime payloads, copied decompiler output, proprietary binaries and signing material are excluded. [Artwork source research](docs/research/art-sources.md) retains record/license links without distributing images.
+
 ## Status
 
-This public source includes a caller-authorization correction that has not been installed on the reference TV. Background manager-routed channel keys are refused until Samsung’s sender identity is verified; brightness controls and captured keys inside our own UI are unaffected.
+The public runtime source remains **Home 0.3.53 / native 0.4.42**, including a source-only caller-authorization correction. This documentation update does not change runtime code or the TV. The last readback-verified reference installation was **Home 0.3.54 / native 0.4.43**, with later brightness input changes but without that caller correction. Do not assume reference-TV observations validate this exact public build.
 
-The current installed pair is **Home 0.3.53/native 0.4.42**. All55 non-signature files matched TV readback and Home launch succeeded. Auto restores the active picture profile’s default backlight before enabling the sensor. The owner confirms Auto works; physical appearance of the refined Auto icon and sensor adaptation remain pending. Updates reuse this TV’s existing private signing identity; portable SDK-profile setup still needs validation. The local preview has a subsequent corner-badge icon refinement that is not yet installed on the TV.
+On the configured reference TV, the owner confirmed transparent navigation over uninterrupted Netflix/YouTube playback, Home/Back behavior, direct Settings/Apps, deliberate Samsung-bar visits, manual/Auto brightness response, exact Netflix title/YouTube video opening, personal-photo display, native Art light adaptation and Home idle-to-Art entry. Selection continuity works but has visual/timing issues; Art exit can show seconds of black screen/flicker. See the [capability ledger](docs/research/evidence-and-status.md#capability-ledger) for the precise scope.
 
-Established earlier: transparent sidebar over uninterrupted Netflix/YouTube playback; Home/Back handling; Settings and native Art returns; manual brightness; real Netflix/YouTube feed reads; Netflix selected-title launch. The latest YouTube fragment correction, cursor handoff, some channel cases and Auto sensor behavior still need attended acceptance. Automatic cold startup, Samsung pin/order synchronization, and a custom artwork gallery remain unfinished. The Artwork shortcut currently targets Samsung’s selection browser; synced move/remove needs the routing work described in ARCHITECTURE.
+Automatic cold startup, shared Samsung pin ordering, a custom Art gallery/category navigation, motion-specific wake and explicit latest-feature standalone/network-recovery tests remain unfinished or unaccepted. Normal-viewing sensor adaptation remains separate from the accepted Art light test. Public background `brightness_key` requests refuse non-owned senders; the observed Samsung manager identity still needs scoped authorization/acceptance. Fresh SDK-profile first-install signing is not yet validated end to end.
 
-**Installing the packages alone does not replace Samsung's Home or boot policy.** Existing research registration is not a public, portable installer. The public setup provides an ordinary app launch path; it does not automate firmware-specific routing changes or request new privileges.
+**Installing the packages alone does not replace Samsung's Home or boot policy.** Reference routing was separately researched; a portable routing installer is not implemented. Use the ordinary app launch path and read the [routing limits](docs/research/platform-and-routing.md) before attempting firmware integration.
 
 ## Build for a TV
 
